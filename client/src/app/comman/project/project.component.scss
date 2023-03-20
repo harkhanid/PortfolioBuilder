@@ -1,0 +1,18 @@
+.main-container{
+    width: 1200px;
+    margin: 0 auto;
+    min-height: 120px;
+}
+
+
+.project-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.project-image{
+    display: block;
+    width: 50%;
+    object-fit: fill;
+    justify-content: center;
+}

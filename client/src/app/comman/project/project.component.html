@@ -1,0 +1,35 @@
+<div class="nav-wrapper">
+    <div class="dots-wrapper">
+        <div id="dot-1"  class="browser-dot"></div>
+        <div id="dot-2"  class="browser-dot"></div>
+        <div id="dot-3"  class="browser-dot"></div> 
+    </div>
+    <ul id="navigation">
+        <li><a href="#contact-form">Contact</a></li>
+     </ul>
+</div>
+<section class="s1">
+    <div class="main-container">
+        <div class="project-container">
+           <img class="project-image" [src]="model.image">
+            <h2>{{model.name}}</h2>
+            <p *ngFor="let item of model.description">{{item}}</p>
+        </div>
+    </div>
+</section>
+<section class="s2">
+    <div class="main-container">
+        <h3>Technologies</h3>
+        <ul>
+            <li *ngFor="let item of model.technologies">- {{item}}</li>
+        </ul>
+    </div>
+</section>
+
+<section class="s1" *ngIf="pagesFlag" >
+    <div class="main-container" *ngFor="let page of model.pages">
+        <h5>{{page.title}}</h5>
+        <img class="project-image" [src]="page.image">
+        <p *ngFor="let item of page.description">{{item}}</p>
+    </div>
+</section>

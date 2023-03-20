@@ -1,0 +1,26 @@
+.container{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:100vh;
+  background-color: #412234;
+}
+
+.inside-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.example-full-width{
+  width: 100%;
+}
+
+button{
+  background-color:#6d466b;
+  color:white;
+}
+
+.inside-button{
+  color:white;
+}
+

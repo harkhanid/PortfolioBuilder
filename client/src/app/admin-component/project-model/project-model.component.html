@@ -1,0 +1,55 @@
+<div class="body"> 
+    <img class="project-image" [src]="imageLink">
+<mat-card class="card">
+    <form #userName="ngForm"> 
+        <mat-form-field appearance="fill">
+            <mat-label>Project Title</mat-label>
+            <input matInput name="name" placeholder="title" [(ngModel)]="model.name">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+        <input #fileinputmain (change)="onFilePickedMain(fileinputmain)" placeholder="Upload Image" name="imageFileMain"
+        type="file" />
+       
+        <br><br>
+        Short description:
+        <textarea cols="100" rows="6" name="shortDesc" [(ngModel)]="model.shortDesc"> </textarea>
+        
+        description:
+        <textarea cols="100" rows="6" name="description" [(ngModel)]="model.description"> </textarea>
+        
+        <br>
+        <!-- <div name="description" name="description" [froalaEditor] [(froalaModel)]="model.description">Froala is the best WYSIWYG editor!</div> -->
+        <br><br>
+        <label>Tech Stack</label> 
+            <div class="example-button-container">
+            <input [(ngModel)] = "newTech" placeholder="Enter new Techonology" [ngModelOptions]="{standalone: true}">
+            <button (click)="addTech()" mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+              <mat-icon>plus_one</mat-icon>
+            </button>
+          </div>
+          <ng-container *ngFor="let item of model.technologies;let indexOfelement=index;" >
+           <p>{{item}} <span (click)="deleteTech(indexOfelement)" style="color:red">X</span></p>
+          </ng-container>
+       
+       <br><br>
+       <input [(ngModel)] = "imageObject.title" placeholder="Enter Image Title" [ngModelOptions]="{standalone: true}">
+       <input #fileinput (change)="onFilePicked(fileinput)" placeholder="Upload Image" name="imageFile"
+       type="file" />
+       <!-- <div name="imageDesc" name="imageDesc" [froalaEditor] [(froalaModel)]="imageObject.description">Froala is the best WYSIWYG editor!</div> -->
+       <textarea name="imageDesc"  cols="100" rows="6" [(ngModel)]="imageObject.description"> </textarea>
+        
+       <button (click)="onFileUpload()">Upload Image</button>
+        <div *ngFor="let page of model.pages;let indexOfelement=index;">
+            <h6>{{page.title}}</h6><span (click)="deletePage(indexOfelement)" style="color:red">X</span>
+            <img class="project-image" [src]="s3Url+page.key">
+            <div [innerHTML]="page.description"></div>
+
+        </div>    
+        
+        <button (click)="onClickSubmit(userName.value)" type="submit" mat-button color="primary">Save/Update</button>
+    </form>
+</mat-card>
+</div>
+
+ 
